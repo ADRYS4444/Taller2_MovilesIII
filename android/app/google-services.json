@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "40877853579",
+    "firebase_url": "https://movilesapp-65462-default-rtdb.firebaseio.com",
+    "project_id": "movilesapp-65462",
+    "storage_bucket": "movilesapp-65462.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:40877853579:android:be5cd948f36fcd99e3bd8e",
+        "android_client_info": {
+          "package_name": "Moviles.App"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCSslYjI5Cp41bTvYdEPLIm8GR3UPCcIj0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:40877853579:android:11f1f7ba3b88aa65e3bd8e",
+        "android_client_info": {
+          "package_name": "com.example.taller1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCSslYjI5Cp41bTvYdEPLIm8GR3UPCcIj0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

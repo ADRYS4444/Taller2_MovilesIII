@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:taller1/screens/catalogo.dart';
+import 'package:firebase_database/firebase_database.dart';
 
 class Login extends StatelessWidget {
   const Login({super.key});
@@ -6,8 +8,10 @@ class Login extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: Colors.deepPurple.shade50,
         appBar: AppBar(
-          title: Text("Registro"),
+          title: Text("Login"),
+          backgroundColor: Colors.deepPurple, 
         ),
         body: Padding(
             padding: const EdgeInsets.all(16.0),
@@ -16,52 +20,31 @@ class Login extends StatelessWidget {
                     child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                  Text(
-                    'Registrate',
-                    style: TextStyle(fontSize: 35),
-                  ),
-                  iconoRegistro(),
-                  SizedBox(height: 20),
-                  inputNombre(),
-                  SizedBox(height: 20),
-                  inputEdad(),
-                  SizedBox(height: 20),
-                  inputUser(),
-                  SizedBox(height: 20),
-                  inputPass(),
-                  SizedBox(height: 20),
-                  inputRepetirPass(),
-                  SizedBox(height: 20),
-                  registrarse(context),
-                  SizedBox(height: 20),
-                  recuperarPass(context),
-                ])))));
+                          Text(
+                            'Inicio de Sesion',
+                            style: TextStyle(
+                              fontSize: 35,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.deepPurple, 
+                            ),
+                          ),
+                          iconoLogin(),
+                          SizedBox(height: 20),
+                          inputUser(),
+                          SizedBox(height: 20),
+                          inputPass(),
+                          SizedBox(height: 20),
+                          iniciarSesion(context),
+                          SizedBox(height: 20),
+                          recuperarPass(context),
+                        ])))),
+    );
   }
 }
 
-Widget iconoRegistro() {
-  return Icon(Icons.person_add_alt, size: 100, color: Colors.blueGrey);
-}
-
-Widget inputNombre() {
-  return TextField(
-    decoration: InputDecoration(
-      labelText: "Nombre",
-      border: OutlineInputBorder(),
-      prefixIcon: Icon(Icons.person),
-    ),
-  );
-}
-
-Widget inputEdad() {
-  return TextField(
-    keyboardType: TextInputType.number,
-    decoration: InputDecoration(
-      labelText: "Edad",
-      border: OutlineInputBorder(),
-      prefixIcon: Icon(Icons.today_outlined),
-    ),
-  );
+Widget iconoLogin() {
+  return Icon(Icons.admin_panel_settings_outlined,
+      size: 100, color: Colors.deepPurple); 
 }
 
 Widget inputUser() {
@@ -84,27 +67,29 @@ Widget inputPass() {
   );
 }
 
-Widget inputRepetirPass() {
-  return TextField(
-    decoration: InputDecoration(
-        labelText: "Repetir Contraseña",
-        border: OutlineInputBorder(),
-        prefixIcon: Icon(Icons.lock_reset_outlined)),
-    obscureText: true,
-  );
-}
-
-Widget registrarse(context) {
+Widget iniciarSesion(context) {
   return ElevatedButton(
-      onPressed: () => Navigator.of(context)
-          .push(MaterialPageRoute(builder: (context) => Login())),
-      child: Text("Registrarse"));
+    onPressed: () => Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => Catalogo())),
+    child: Text("Iniciar Sesion"),
+    style: ElevatedButton.styleFrom(
+      foregroundColor: Colors.white, backgroundColor: Colors.deepPurple, 
+      padding: EdgeInsets.symmetric(vertical: 12, horizontal: 30),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(30), 
+      ),
+    ),
+  );
 }
 
 Widget recuperarPass(context) {
   return TextButton(
-      onPressed: () => alerta_recuperarPass(context),
-      child: Text("¿Olvidaste tu contraseña?"));
+    onPressed: () => alerta_recuperarPass(context),
+    child: Text("¿Olvidaste tu contraseña?"),
+    style: TextButton.styleFrom(
+      foregroundColor: Colors.deepPurple, textStyle: TextStyle(fontSize: 16),
+    ),
+  );
 }
 
 void alerta_recuperarPass(context) {
@@ -113,7 +98,7 @@ void alerta_recuperarPass(context) {
       builder: (BuildContext context) {
         return AlertDialog(
           title: Text("Sin Funcion"),
-          content: Text("Este boton no tiene funcionalidad"),
+          content: Text("Este botón no tiene funcionalidad"),
           actions: [
             TextButton(
                 onPressed: () => Navigator.pop(context),
